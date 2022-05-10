@@ -1,33 +1,29 @@
 
 function isMatch(text, pattern) {
-  
-    //if text matches pattern, return true
-    if (text === pattern) {
-      return true
-    } else if (`/.${text}/` == pattern){
-        //if any character in the string can be replaced with . and the rest of the characters match,           return true
-      return true;
-    }
-  
-    else if (`/${text}*/` === pattern) {
-        //if any 0 or more consecutive characters in the string can be replaced with *, return true
-      return true;
-  
-      
-    }
-    else {
-   
-      return false;
-    }
-    //else return false
-    
-  
+    //const string = "acd";
+    //const regEx = /\w.\w/g;
+    //let newRegEx = /\w./g;
+    const newREG = new RegExp(`${pattern}`);
+    const isMatchPattern = text.match(newREG);
+    return isMatchPattern;
+    //console.log("match ?", isMatchPattern);
   }
   
-  const string = "hay";
-  const regEx = /\w.\w/g;
-  console.log(string.match(regEx));
-  
-  
-  
-  
+console.log(isMatch("acd", "ab*c."));
+
+//Examples:
+// input:  text = "aa", pattern = "a"
+// output: false
+//this one is matching just the one a and is outputting true ***
+
+// input:  text = "aa", pattern = "aa"
+// output: true
+
+// input:  text = "abc", pattern = "a.c"
+// output: true
+
+// input:  text = "abbb", pattern = "ab*"
+// output: true
+
+// input:  text = "acd", pattern = "ab*c."
+// output: true
