@@ -1,12 +1,8 @@
 
 function isMatch(text, pattern) {
-    //const string = "acd";
-    //const regEx = /\w.\w/g;
-    //let newRegEx = /\w./g;
     const newREG = new RegExp(`${pattern}`);
     const isMatchPattern = text.match(newREG);
     return isMatchPattern;
-    //console.log("match ?", isMatchPattern);
   }
   
 console.log(isMatch("acd", "ab*c."));
